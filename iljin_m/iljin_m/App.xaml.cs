@@ -11,7 +11,7 @@ namespace iljin_m
         {
             InitializeComponent();
 
-            MainPage = new StockSch();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()
