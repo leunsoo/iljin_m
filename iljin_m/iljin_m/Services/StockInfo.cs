@@ -11,6 +11,7 @@ namespace iljin_m.Services
         public static List<Stock> GetStockInfos()
         {
             List<Stock> stockList = new List<Stock>();
+
             Stock test = new Stock()
             {
                 ItemCode = "test1",
@@ -21,7 +22,7 @@ namespace iljin_m.Services
                 ItemQty = "10"
             };
 
-            for(int i = 0; i < 10; i ++)
+            for(int i = 0; i < 8; i ++)
             {
                 stockList.Add(test);
             }

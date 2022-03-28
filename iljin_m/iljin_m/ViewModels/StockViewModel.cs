@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using iljin_m.Models;
 using iljin_m.Services;
@@ -19,6 +20,13 @@ namespace iljin_m.ViewModels
         public StockViewModel()
         {
             StockList = StockInfo.GetStockInfos();
+        }
+
+        public void test ()
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("~~");
+            request.ContentType = "?";
+            request.Method = "GET";
         }
     }
 }

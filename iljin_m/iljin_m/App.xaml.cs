@@ -9,6 +9,8 @@ namespace iljin_m
     {
         public App()
         {
+            Xamarin.Forms.DataGrid.DataGridComponent.Init();
+
             InitializeComponent();
 
             MainPage = new AppShell();
