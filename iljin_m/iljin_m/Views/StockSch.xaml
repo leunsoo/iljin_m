@@ -31,24 +31,26 @@
                     </Entry>
                 </Frame>
 
-                <Button CornerRadius="5" Grid.Row="0" Grid.Column="2" Padding="0" Text="검색" Margin="0,0,5,0" FontSize="Medium" BackgroundColor="#2196F3"/>
+                <Button CornerRadius="5" Grid.Row="0" Grid.Column="2" Padding="0" Text="검색" Margin="0,0,5,0" FontSize="Medium" BackgroundColor="#2196F3" Command="{Binding BtnCommand}"/>
             </Grid>
 
             <Grid Grid.Row="1">
-                <dg:DataGrid ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="True" RowHeight="50" HeaderHeight="50"
-                            HeaderBackground="White" BorderColor="Black" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
+                <dg:DataGrid ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
+                            HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
                     <x:Arguments></x:Arguments>
-                    <dg:DataGrid.Columns> 
-                        <dg:DataGridColumn Title="제품구분" PropertyName="itemDiv" Width="2*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="두께" PropertyName="itemDiv" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="폭" PropertyName="itemDiv" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="길이" PropertyName="itemDiv" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="현재고" PropertyName="itemDiv" Width="1*"></dg:DataGridColumn>
+                    <dg:DataGrid.Columns>
+                        <dg:DataGridColumn Title="제품코드" PropertyName="ItemCode" Width="0"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="제품구분" PropertyName="ItemDiv" Width="2*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="두께" PropertyName="ItemThickness" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="폭" PropertyName="ItemWidth" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="길이" PropertyName="ItemLength" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="재고" PropertyName="ItemQty" Width="1.*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="내역" PropertyName="null" Width="1*"></dg:DataGridColumn>
                     </dg:DataGrid.Columns>
                     <dg:DataGrid.RowsBackgroundColorPalette>
                         <dg:PaletteCollection>
-                            <Color>#F2F2F2</Color>  
-                            <Color>#152525</Color>  
+                            <Color>white</Color>
+                            <Color>#FFFFFF</Color>  
                         </dg:PaletteCollection>
                     </dg:DataGrid.RowsBackgroundColorPalette>
                 </dg:DataGrid>

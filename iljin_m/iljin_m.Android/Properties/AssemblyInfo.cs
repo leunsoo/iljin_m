@@ -28,3 +28,6 @@ using Android.App;
 // Add some common permissions, these can be removed if not needed
 [assembly: UsesPermission(Android.Manifest.Permission.Internet)]
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+
+//웹 서버 연결 가능하게 하기
+[assembly: Application(UsesCleartextTraffic = true)]

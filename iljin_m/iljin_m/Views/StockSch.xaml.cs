@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using iljin_m.ViewModels;
+using iljin_m.Services;
 
 namespace iljin_m.Views
 {
@@ -16,7 +17,7 @@ namespace iljin_m.Views
         public StockSch()
         {
             InitializeComponent();
-            BindingContext = new StockViewModel();
+            BindingContext = new StockSchViewModel(new StockService());
         }
     }
 }
