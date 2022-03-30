@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace iljin_m.ViewStyles
 {
-    public class CustomEntry : RoutingEffect
+    public class UnderlineRemove : RoutingEffect
     {
-        public CustomEntry() : base("CustomEntryGroup.CustomEntryStyle")
+        public UnderlineRemove() : base("RoutingEffectGroup.UnderlineRemove")
         {
 
         }

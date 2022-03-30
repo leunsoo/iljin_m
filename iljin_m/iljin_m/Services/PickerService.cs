@@ -8,28 +8,39 @@ using System.Net.Http;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace iljin_m.Services
 {
-    public class StockService : IStockService
+    public class PickerService
     {
         private HttpClient client;
+        private char pickerCase;
 
-        public StockService()
+        public PickerService(char _pickerCase)
         {
             client = new HttpClient();
+            pickerCase = _pickerCase;
         }
 
-        public async Task<List<Stock>> SelectDataAsync()
+        public async Task<List<KeyValuePair<string, string>>> SelectDataAsync()
         {
-            List<Stock> stockList = new List<Stock>();
+            List<KeyValuePair<string, string>> itemDivList = new List<KeyValuePair<string, string>>();
 
             string url = "";
             string param = "";
 
             try
             {
-                url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock.aspx";
+                if(pickerCase =='0')
+                {
+                    url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv1.aspx";
+                }
+                else
+                {
+                    url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv2.aspx";
+                    param = "?";
+                }
 
                 Uri uri = new Uri(url);
 
@@ -38,7 +49,7 @@ namespace iljin_m.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    stockList = JsonConvert.DeserializeObject<List<Stock>>(content);
+                    itemDivList = JsonConvert.DeserializeObject<List<KeyValuePair<string, string>>>(content);
                 }
             }
             catch(Exception ex)
@@ -46,7 +57,7 @@ namespace iljin_m.Services
                 Debug.WriteLine(ex.Message);
             }
 
-            return stockList;
+            return itemDivList;
         }
     }
 }

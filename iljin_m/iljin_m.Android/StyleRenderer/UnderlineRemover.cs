@@ -15,13 +15,13 @@ using iljin_m.Droid;
 using Android.Content.Res;
 using System.ComponentModel;
 
-[assembly: ResolutionGroupName("CustomEntryGroup")]
-[assembly: ExportEffect(typeof(CustomEntryRenderer),"CustomEntryStyle")]
+[assembly: ResolutionGroupName("RoutingEffectGroup")]
+[assembly: ExportEffect(typeof(UnderlineRemover), "UnderlineRemove")]
 namespace iljin_m.Droid
 {
-    public class CustomEntryRenderer : PlatformEffect
+    public class UnderlineRemover : PlatformEffect
     {
-        public CustomEntryRenderer() { }
+        public UnderlineRemover() { }
 
         protected override void OnAttached()
         {
