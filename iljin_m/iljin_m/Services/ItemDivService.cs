@@ -27,7 +27,7 @@ namespace iljin_m.Services
 
             try
             {
-                string url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv1.aspx";
+                string url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv.aspx";
                 string param = "";
 
                 Uri uri = new Uri(url);
