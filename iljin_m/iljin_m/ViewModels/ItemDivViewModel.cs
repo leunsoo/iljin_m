@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace iljin_m.ViewModels
 {
-    public class PickerViewModel : Notify
+    public class ItemDivViewModel : Notify
     {
         private IStockService stockService;
 
@@ -29,7 +29,7 @@ namespace iljin_m.ViewModels
             }
         }
 
-        public PickerViewModel(IStockService _stockService)
+        public ItemDivViewModel(IStockService _stockService)
         {
             stockService = _stockService;
 

@@ -12,35 +12,23 @@ using System.Linq;
 
 namespace iljin_m.Services
 {
-    public class PickerService
+    public class ItemDivService
     {
         private HttpClient client;
-        private char pickerCase;
 
-        public PickerService(char _pickerCase)
+        public ItemDivService()
         {
             client = new HttpClient();
-            pickerCase = _pickerCase;
         }
 
         public async Task<List<KeyValuePair<string, string>>> SelectDataAsync()
         {
             List<KeyValuePair<string, string>> itemDivList = new List<KeyValuePair<string, string>>();
 
-            string url = "";
-            string param = "";
-
             try
             {
-                if(pickerCase =='0')
-                {
-                    url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv1.aspx";
-                }
-                else
-                {
-                    url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv2.aspx";
-                    param = "?";
-                }
+                string url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv1.aspx";
+                string param = "";
 
                 Uri uri = new Uri(url);
 

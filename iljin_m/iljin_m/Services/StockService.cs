@@ -24,12 +24,10 @@ namespace iljin_m.Services
         {
             List<Stock> stockList = new List<Stock>();
 
-            string url = "";
-            string param = "";
-
             try
             {
-                url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock.aspx";
+                string url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock.aspx";
+                string param = "";
 
                 Uri uri = new Uri(url);
 

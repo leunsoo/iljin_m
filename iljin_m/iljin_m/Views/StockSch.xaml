@@ -70,6 +70,28 @@
                     </Picker>
                 </Frame>
             </Grid>
+
+            <Grid Grid.Row="1">
+                <dg:DataGrid ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
+                            HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
+                    <x:Arguments></x:Arguments>
+                    <dg:DataGrid.Columns>
+                        <dg:DataGridColumn Title="제품코드" PropertyName="ItemCode" Width="0"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="제품구분" PropertyName="ItemDiv" Width="2*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="두께" PropertyName="ItemThickness" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="폭" PropertyName="ItemWidth" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="길이" PropertyName="ItemLength" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="재고" PropertyName="ItemQty" Width="1.*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="내역" PropertyName="null" Width="1*"></dg:DataGridColumn>
+                    </dg:DataGrid.Columns>
+                    <dg:DataGrid.RowsBackgroundColorPalette>
+                        <dg:PaletteCollection>
+                            <Color>white</Color>
+                            <Color>#FFFFFF</Color>
+                        </dg:PaletteCollection>
+                    </dg:DataGrid.RowsBackgroundColorPalette>
+                </dg:DataGrid>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
