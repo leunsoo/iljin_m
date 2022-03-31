@@ -14,8 +14,13 @@ namespace iljin_m.Views
     //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StockSch : ContentPage
     {
+        public string GetItemName { get => txt_itemName.Text; }
+        public string GetMinWidth { get => txt_width1.Text; }
+        public string GetMaxWidth { get => txt_width2.Text; }
+
         public StockSch()
         {
+
             InitializeComponent();
             BindingContext = new StockSchViewModel(new StockService());
         }
