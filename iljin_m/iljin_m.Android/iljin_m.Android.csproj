@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -89,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iljin_m\iljin_m.csproj">
-      <Project>{36881091-9BA9-418E-9E7D-4D014EA0E83E}</Project>
+      <Project>{B2474D5D-5CB7-4DE2-9F13-AE3B8FA55AF0}</Project>
       <Name>iljin_m</Name>
     </ProjectReference>
   </ItemGroup>
