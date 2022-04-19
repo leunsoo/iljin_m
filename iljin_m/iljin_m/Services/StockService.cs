@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using iljin_m.Models;
+using iljin_m.Views;
 using System.Net;
 using System.Net.Http;
 using Xamarin.Forms;
@@ -13,11 +14,13 @@ namespace iljin_m.Services
 {
     public class StockService : IStockService
     {
+        private StockSch stockSch;
         private HttpClient client;
 
         public StockService()
         {
             client = new HttpClient();
+            stockSch = new StockSch();
         }
 
         public async Task<List<Stock>> SelectDataAsync()
@@ -27,7 +30,7 @@ namespace iljin_m.Services
             try
             {
                 string url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock.aspx";
-                string param = "";
+                string param = $"?itemName={stockSch.ItemName}";
 
                 Uri uri = new Uri(url);
 

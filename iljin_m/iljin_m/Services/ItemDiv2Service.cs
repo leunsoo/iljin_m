@@ -12,11 +12,11 @@ using System.Linq;
 
 namespace iljin_m.Services
 {
-    public class ItemDivService
+    public class ItemDiv2Service
     {
         private HttpClient client;
 
-        public ItemDivService()
+        public ItemDiv2Service()
         {
             client = new HttpClient();
         }
