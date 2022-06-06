@@ -11,7 +11,7 @@ namespace iljin_m.ViewModels
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if(propertyName != null)
+            if(PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }

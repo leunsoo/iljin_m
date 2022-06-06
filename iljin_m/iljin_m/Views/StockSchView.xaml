@@ -2,14 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:iljin_m.ViewStyles"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
-             x:Class="iljin_m.Views.StockSch"
+             xmlns:vm="clr-namespace:iljin_m.ViewModels"
+             x:Class="iljin_m.Views.StockSchView"
              Title="재고현황">
     <ContentPage.Content>
         <Grid Margin="10,10" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -41,37 +44,64 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.5*"/>
-                    <ColumnDefinition Width="0.3*"/>
-                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.8*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
                 <Frame Grid.Row="0" Grid.Column="0" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,0,0" BackgroundColor="#FFF" >
-                    <Entry x:Name="txt_width1" TextColor="Black" Placeholder="최소 폭" PlaceholderColor="Gray">
+                    <Entry x:Name="txt_width1" TextColor="Black" Placeholder="최소 폭" PlaceholderColor="Gray" >
                         <Entry.Effects>
                             <effects:UnderlineRemove/>
                         </Entry.Effects>
                     </Entry>
                 </Frame>
-                <Label Text="~" FontSize="Large" Grid.Column="1" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Frame Grid.Row="0" Grid.Column="2" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,0,0" BackgroundColor="#FFF" >
+                <!--<Label Text="~" FontSize="Medium" Grid.Column="1" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>-->
+                <Frame Grid.Row="0" Grid.Column="1" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,0,0" BackgroundColor="#FFF" >
                     <Entry x:Name="txt_width2" TextColor="Black" Placeholder="최대 폭" PlaceholderColor="Gray">
                         <Entry.Effects>
                             <effects:UnderlineRemove/>
                         </Entry.Effects>
                     </Entry>
                 </Frame>
-                <Frame BindingContext="ItemDiv1ViewModel" Grid.Row="0" Grid.Column="3" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,5,0" BackgroundColor="#FFF" >
-                    <Picker x:Name="pick_itemDiv1" Title="제품구분1" TitleColor="gray"
-                            ItemDisplayBinding="{Binding Value}" ItemsSource="{Binding ItemDiv1List}" SelectedItem="{Binding SelectedItem}">
+                <Frame
+                    Grid.Row="0" Grid.Column="2" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,5,0" BackgroundColor="#FFF" >
+                    <Picker x:Name="pick_itemDiv1" Title="제품구분1" TitleColor="gray" FontSize="Small"
+                            ItemDisplayBinding="{Binding Value}" ItemsSource="{Binding ItemDiv1List}" SelectedItem="{Binding SelectedItemDiv1}" >
                         <Picker.Effects>
                             <effects:UnderlineRemove/>
                         </Picker.Effects>
                     </Picker>
                 </Frame>
-                <Frame BindingContext="ItemDiv2ViewModel" Grid.Row="0" Grid.Column="3" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,5,0" BackgroundColor="#FFF" >
-                    <Picker x:Name="pick_itemDiv2" Title="제품구분2" TitleColor="gray"
-                            ItemDisplayBinding="{Binding Value}" ItemsSource="{Binding ItemDiv1List}" SelectedItem="{Binding SelectedItem}">
+            </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.8*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.Column="0" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,0,0" BackgroundColor="#FFF" >
+                    <Entry x:Name="txt_thickness" TextColor="Black" Placeholder="두께" PlaceholderColor="Gray">
+                        <Entry.Effects>
+                            <effects:UnderlineRemove/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Frame Grid.Row="0" Grid.Column="1" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,0,0" BackgroundColor="#FFF" >
+                    <Entry x:Name="txt_memo" TextColor="Black" Placeholder="비고" PlaceholderColor="Gray">
+                        <Entry.Effects>
+                            <effects:UnderlineRemove/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Frame BindingContext="ItemDiv2ViewModel" Grid.Row="0" Grid.Column="2" BorderColor="#d9d9d9" CornerRadius="5" Padding="5,0,0,0" Margin="5,0,5,0" BackgroundColor="#FFF" >
+                    <Picker x:Name="pick_itemDiv2" Title="제품구분2" TitleColor="gray" FontSize="Small"
+                            ItemDisplayBinding="{Binding Value}" ItemsSource="{Binding ItemDiv2List}" SelectedItem="{Binding SelectedItemDiv2}">
                         <Picker.Effects>
                             <effects:UnderlineRemove/>
                         </Picker.Effects>
@@ -79,7 +109,7 @@
                 </Frame>
             </Grid>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="3">
                 <dg:DataGrid ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
                             HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
                     <x:Arguments></x:Arguments>
@@ -89,7 +119,7 @@
                         <dg:DataGridColumn Title="두께" PropertyName="ItemThickness" Width="1*"></dg:DataGridColumn>
                         <dg:DataGridColumn Title="폭" PropertyName="ItemWidth" Width="1*"></dg:DataGridColumn>
                         <dg:DataGridColumn Title="길이" PropertyName="ItemLength" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="재고" PropertyName="ItemQty" Width="1.*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="재고" PropertyName="ItemQty" Width="1*"></dg:DataGridColumn>
                         <dg:DataGridColumn Title="내역" PropertyName="null" Width="1*"></dg:DataGridColumn>
                     </dg:DataGrid.Columns>
                     <dg:DataGrid.RowsBackgroundColorPalette>

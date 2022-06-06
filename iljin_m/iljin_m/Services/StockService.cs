@@ -14,23 +14,21 @@ namespace iljin_m.Services
 {
     public class StockService : IStockService
     {
-        private StockSch stockSch;
         private HttpClient client;
 
         public StockService()
         {
             client = new HttpClient();
-            stockSch = new StockSch();
         }
 
-        public async Task<List<Stock>> SelectDataAsync()
+        public async Task<List<Stock>> SelectDataAsync(string itemName)
         {
             List<Stock> stockList = new List<Stock>();
 
             try
             {
-                string url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock.aspx";
-                string param = $"?itemName={stockSch.ItemName}";
+                string url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock_List.aspx";
+                string param = $"?itemName={itemName}";
 
                 Uri uri = new Uri(url);
 

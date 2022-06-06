@@ -7,7 +7,7 @@
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="재고현황"
-                      ContentTemplate="{DataTemplate local:StockSch}"
+                      ContentTemplate="{DataTemplate local:StockSchView}"
                       Route="StockSch">
         </ShellContent>
     </FlyoutItem>

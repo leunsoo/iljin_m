@@ -8,6 +8,6 @@ namespace iljin_m.Services
 {
     public interface IStockService
     {
-        public Task<List<Stock>> SelectDataAsync();
+        public Task<List<Stock>> SelectDataAsync(string itemName);
     }
 }
