@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using iljin_m.Models;
-using iljin_m.Views;
 using System.Net;
 using System.Net.Http;
-using Xamarin.Forms;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using iljin_m.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace iljin_m.Services
 {
@@ -21,14 +21,22 @@ namespace iljin_m.Services
             client = new HttpClient();
         }
 
-        public async Task<List<Stock>> SelectDataAsync(string itemName)
+        public async Task<List<Stock>> SelectDataAsync(string itemName, string itemDivCode1 , string itemDivCode2, string itemThickness,
+                                                       string itemMinWidth, string itemMaxWidth, string itemMemo )
         {
             List<Stock> stockList = new List<Stock>();
 
             try
             {
                 string url = "http://iljin.ibuild.kr/Scripts/Mobile_Stock_List.aspx";
-                string param = $"?itemName={itemName}";
+
+                string param = $"?itemName={itemName}" +
+                               $"&itemDivCode1={itemDivCode1}" +
+                               $"&itemDivCode2={itemDivCode2}" +
+                               $"&itemThickness={itemThickness}" +
+                               $"&itemMinWidth={itemMinWidth}" +
+                               $"&itemMaxWidth={itemMaxWidth}" +
+                               $"&itemMemo={itemMemo}";
 
                 Uri uri = new Uri(url);
 

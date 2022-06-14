@@ -19,8 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\StockSchView.xaml.cs">
-      <DependentUpon>StockSchView.xaml</DependentUpon>
+    <Compile Update="Views\IncomeStatusView.xaml.cs">
+      <DependentUpon>IncomeStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\InOutListView.xaml.cs">
+      <DependentUpon>InOutListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StockStatusView.xaml.cs">
+      <DependentUpon>StockStatusView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

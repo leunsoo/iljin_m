@@ -5,8 +5,8 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              xmlns:vm="clr-namespace:iljin_m.ViewModels"
-             x:Class="iljin_m.Views.StockSchView"
-             Title="재고현황">
+             x:Class="iljin_m.Views.IncomeStatusView"
+             Title="입고현황">
     <ContentPage.Content>
         <Grid Margin="10,10" >
             <Grid.RowDefinitions>
@@ -34,7 +34,7 @@
                     </Entry>
                 </Frame>
 
-                <Button CornerRadius="5" Grid.Row="0" Grid.Column="2" Padding="0" Text="검색" Margin="0,0,5,0" FontSize="Medium" BackgroundColor="#2196F3" Command="{Binding BtnCommand}"/>
+                <Button CornerRadius="5" Grid.Row="0" Grid.Column="2" Padding="0" Text="검색" Margin="0,0,5,0" FontSize="Medium" BackgroundColor="#2196F3" Command="{Binding SearchBtnOnClickEvent}"/>
             </Grid>
 
             <Grid Grid.Row="1">
@@ -114,13 +114,12 @@
                             HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
                     <x:Arguments></x:Arguments>
                     <dg:DataGrid.Columns>
-                        <dg:DataGridColumn Title="제품코드" PropertyName="ItemCode" Width="0"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="제품구분" PropertyName="ItemDiv" Width="2*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="두께" PropertyName="ItemThickness" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="폭" PropertyName="ItemWidth" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="길이" PropertyName="ItemLength" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="재고" PropertyName="ItemQty" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="내역" PropertyName="null" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="제품명" PropertyName="ItemName" Width="0"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="수량" PropertyName="ItemCount" Width="2*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="출발예정" PropertyName="DepartureDate" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="입항일" PropertyName="ArrivalDate" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="입고일" PropertyName="DeliveryDate" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="계약번호" PropertyName="ContractNumber" Width="1*"></dg:DataGridColumn>
                     </dg:DataGrid.Columns>
                     <dg:DataGrid.RowsBackgroundColorPalette>
                         <dg:PaletteCollection>

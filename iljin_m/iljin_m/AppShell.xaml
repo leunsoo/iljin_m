@@ -3,13 +3,17 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:iljin_m.Views"
        Title="Iljin"
+       Shell.TabBarIsVisible="False"
        x:Class="iljin_m.AppShell">
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="재고현황"
-                      ContentTemplate="{DataTemplate local:StockSchView}"
-                      Route="StockSch">
+                      ContentTemplate="{DataTemplate local:StockStatusView}"
+                      Route="StockStatusView">
+        </ShellContent>
+        <ShellContent Title="입고현황"
+                      ContentTemplate="{DataTemplate local:IncomeStatusView}"
+                      Route="IncomeStatusView">
         </ShellContent>
     </FlyoutItem>
-
 </Shell>

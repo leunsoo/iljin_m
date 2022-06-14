@@ -8,11 +8,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using iljin_m.ViewModels;
 using iljin_m.Services;
+using iljin_m.Interfaces;
 
 namespace iljin_m.Views
 {
     //[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StockSchView : ContentPage
+    public partial class StockStatusView : ContentPage
     {
         public string ItemName { get => txt_itemName.Text; } // 제품명
         public string MinWidth { get => txt_width1.Text; } // 최소폭
@@ -22,12 +23,13 @@ namespace iljin_m.Views
         public int ItemDiv1 { get => pick_itemDiv1.SelectedIndex; } // 선택한 제품구분1 Index
         public int ItemDiv2 { get => pick_itemDiv2.SelectedIndex; } // 선택한 제품구분2 Index
 
-        public StockSchView()
+        public StockStatusView()
         {
-
-            BindingContext = new StockSchViewModel(new StockService(), this);
-
             InitializeComponent();
+
+            BindingContext = new StockStatusViewModel(new StockService(), this);
+
+            //Application.Current.MainPage = new StockStatusView();
         }
     }
 }

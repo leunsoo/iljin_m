@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using System.Collections.Specialized;
 
 namespace iljin_m.ViewModels
 {
@@ -11,10 +12,7 @@ namespace iljin_m.ViewModels
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
