@@ -25,7 +25,7 @@ namespace iljin_m.Views
 
         public IncomeStatusView()
         {
-           // BindingContext = new IncomeStatusView(new StockService(), this);
+            BindingContext = new IncomeStatusViewModel(new IncomeService(), this);
 
             InitializeComponent();
         }

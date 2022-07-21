@@ -14,23 +14,18 @@ namespace iljin_m.ViewModels
 {
     public class StockStatusViewModel : Notify
     {
-        #region Class
+        #region Variable
         private StockStatusView stockStatusView;        // 재고관리 View
         private IStockService stockService;      // 재고관리 조회 데이터
         private ItemDiv1Service itemDiv1Service; // 제품구분1 데이터
         #endregion
 
-        #region Variable
-        private List<KeyValuePair<string, string>> itemDiv1List; // 제품구분1 리스트
-        #endregion
-
         #region Property
-        public ICommand SearchBtnOnClickEvent { get; set; }  // 조회 버튼 이벤트
-        public ICommand GridBtnOnClickEvent { get; set; }    // 입출고내역 클릭 이벤트
-        public INavigation Navigation { get; set; }          // 화면 전환
+        public ICommand SearchBtnOnClickEvent { private set; get; }  // 조회 버튼 이벤트
+        public ICommand GridBtnOnClickEvent { private set; get; }    // 입출고내역 클릭 이벤트
+        public INavigation Navigation { private set; get;  }          // 화면 전환
         public List<KeyValuePair<string, string>> ItemDiv1List { get => itemDiv1Service.ItemDiv1List; } // 제품구분1 List
-        public List<Stock> StockList { get; set; } // 재고현황 List(DB)
-        //public ObservableCollection<Stock> StockList { get; set; } // 재고현황 List(DB)
+        public List<Stock> StockList { private set; get; } // 재고현황 List(DB)
         #endregion 
         
         //생성자

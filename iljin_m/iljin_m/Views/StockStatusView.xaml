@@ -15,7 +15,7 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
@@ -37,7 +37,8 @@
                 <Button CornerRadius="5" Grid.Row="0" Grid.Column="2" Padding="0" Text="검색" Margin="0,0,5,0" FontSize="Medium" BackgroundColor="#2196F3" Command="{Binding SearchBtnOnClickEvent}"/>
             </Grid>
 
-            <Grid Grid.Row="0">
+
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
@@ -73,7 +74,7 @@
                     </Picker>
                 </Frame>
             </Grid>
-            
+
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -108,10 +109,9 @@
                     </Picker>
                 </Frame>
             </Grid>
-            <ListView></ListView>
 
             <Grid Grid.Row="3">
-                <dg:DataGrid ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="True" RowHeight="50" HeaderHeight="50"
+                <dg:DataGrid x:Name="datagrid" ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
                             HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
                     <x:Arguments></x:Arguments>
                     <dg:DataGrid.Columns>
@@ -125,7 +125,7 @@
                             <dg:DataGridColumn.CellTemplate>
                                 <DataTemplate>
                                     <Grid Padding="3,3,3,3">
-                                        <Button Text="내역" Command="{Binding GridBtnOnClickEvent}"></Button>
+                                        <Button Text="내역" Command="{Binding Source={x:Reference datagrid},Path=BindingContext.GridBtnOnClickEvent}" CommandParameter="{Binding .}"></Button>
                                     </Grid>
                                 </DataTemplate>
                             </dg:DataGridColumn.CellTemplate>
