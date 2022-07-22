@@ -15,8 +15,13 @@ namespace iljin_m.Views
     //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InOutListView : ContentPage
     {
+        public string ItemCode { private set; get; }
+
         public InOutListView()
         {
+            Txt_ItemName.Text = "TestBinding";
+            BindingContext = new InOutListViewModel(new InOut_Over_Service(), new InOut_Under_Service(), this);
+
             InitializeComponent();
         }
     }

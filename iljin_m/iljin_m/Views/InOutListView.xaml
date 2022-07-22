@@ -25,16 +25,16 @@
 
                 <Label Grid.Row="0" Text="입출고 내역" FontSize="Large" TextColor="Black" Margin="5,0,0,0"></Label>
 
-                <dg:DataGrid Grid.Row="1" ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
+                <dg:DataGrid Grid.Row="1" ItemsSource="{Binding InOut_Over_List}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
                             HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black">
                     <x:Arguments></x:Arguments>
                     <dg:DataGrid.Columns>
-                        <dg:DataGridColumn Title="일자" PropertyName="ItemName" Width="1.5*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="담당자" PropertyName="ItemCount" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="조정" PropertyName="DepartureDate" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="입고" PropertyName="ArrivalDate" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="출고" PropertyName="DeliveryDate" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="재고" PropertyName="ContractNumber" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="일자" PropertyName="Date" Width="1.5*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="담당자" PropertyName="Manager" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="조정" PropertyName="Adjust" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="입고" PropertyName="Income" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="출고" PropertyName="Release" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="재고" PropertyName="StockQty" Width="1*"></dg:DataGridColumn>
                     </dg:DataGrid.Columns>
                     <dg:DataGrid.RowsBackgroundColorPalette>
                         <dg:PaletteCollection>
@@ -53,16 +53,16 @@
 
                 <Label Grid.Row="0" Text="입항예정/입고확정" FontSize="Large" TextColor="Black" Margin="5,0,0,0" ></Label>
 
-                <dg:DataGrid  Grid.Row="1"  ItemsSource="{Binding StockList}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
+                <dg:DataGrid  Grid.Row="1"  ItemsSource="{Binding InOut_Under_List}" HeaderBordersVisible="True" SelectionEnabled="False" RowHeight="50" HeaderHeight="50"
                             HorizontalOptions="Center" HeaderBackground="#F2F2F2" BorderColor="#cccccc" BackgroundColor="Transparent" Margin="5,0,5,0" HeaderTextColor="Black"
                              >
                     <x:Arguments></x:Arguments>
                     <dg:DataGrid.Columns>
-                        <dg:DataGridColumn Title="수량" PropertyName="ItemName" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="입항예정" PropertyName="ItemCount" Width="1.5*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="배차일" PropertyName="DepartureDate" Width="1.5*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="BLNO" PropertyName="ArrivalDate" Width="1.5*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="컨테이너NO" PropertyName="DeliveryDate" Width="1.5*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="수량" PropertyName="ItemQty" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="입항예정" PropertyName="EntryDate" Width="1.5*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="배차일" PropertyName="DispatchDate" Width="1.5*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="BLNO" PropertyName="BLNo" Width="1.5*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="컨테이너NO" PropertyName="ContainerNo" Width="1.5*"></dg:DataGridColumn>
                     </dg:DataGrid.Columns>
                     <dg:DataGrid.RowsBackgroundColorPalette>
                         <dg:PaletteCollection>
