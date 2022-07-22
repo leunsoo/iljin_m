@@ -15,43 +15,28 @@ namespace iljin_m.ViewModels
     public class InOutListViewModel : Notify
     {
         #region Variable
-        private IncomeStatusView incomeStatusView;        // 재고관리 View
-        private IIncomeService incomeService;      // 재고관리 조회 데이터
-        private ItemDiv1Service itemDiv1Service; // 제품구분1 데이터
+        private InOutListView inOutListView;              // 입출고내ㅇ View
+        private IInOut_Over_Service inOut_Over_Service;   // 입출고 내역 데이터
+        private IInOut_Under_Service inOut_Under_Service; // 입항예정 / 입고확정 데이턴
         #endregion
 
         #region Property
-        public ICommand SearchBtnOnClickEvent { private set; get; }  // 조회 버튼 이벤트
-        public INavigation Navigation { private set; get;  }          // 화면 전환
-        public List<KeyValuePair<string, string>> ItemDiv1List { get => itemDiv1Service.ItemDiv1List; } // 제품구분1 List
-        public List<Income> IncomeList { private set; get; } // 재고현황 List(DB)
+        public List<InOut_Over> InOut_Over_List { private set; get; }   // 입출고 내역 List
+        public List<InOut_Under> InOut_Under_List { private set; get; } // 입항예정 / 입고확 List
         #endregion 
         
         //생성자
-        public InOutListViewModel(IIncomeService _incomeService, IncomeStatusView _incomeStatusView)
+        public InOutListViewModel(IInOut_Over_Service _inOut_Over_Service, IInOut_Under_Service _inOut_Under_Service, InOutListView _inOutListView)
         {
-            incomeService = _incomeService;
-            incomeStatusView = _incomeStatusView;
-            Navigation = _incomeStatusView.Navigation;
-            itemDiv1Service = new ItemDiv1Service();
+            inOutListView = _inOutListView;
+            inOut_Over_Service = _inOut_Over_Service;
+            inOut_Under_Service = _inOut_Under_Service;
 
-            SearchBtnOnClickEvent = new Command(Sch_Button_Clicked);
+            //입출고내역 최대 5건 
+            InOut_Over_List = inOut_Over_Service.SelectDataAsync(inOutListView.ItemCode).Result;
 
-            //전체 StockList, 최대 100건
-            IncomeList = incomeService.SelectDataAsync("", "", "", "", "", "", "").Result;
-        }
-        
-        //검색 조건에 맞는 IncomeList 불러오기, 최대 100건
-        private void SetIncomeListFromParams()
-        {
-            IncomeList = incomeService.SelectDataAsync(incomeStatusView.ItemName, incomeStatusView.MinWidth, incomeStatusView.MaxWidth, incomeStatusView.Thickness, incomeStatusView.Memo, "","").Result;
-            OnPropertyChanged(nameof(IncomeList));
-        }
-
-        //조회 버튼 클릭
-        private void Sch_Button_Clicked()
-        {
-            SetIncomeListFromParams();
+            //입항예정 / 입고확정 최대 5건 
+            InOut_Under_List = inOut_Under_Service.SelectDataAsync(inOutListView.ItemCode).Result;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace iljin_m.ViewModels
     public class IncomeStatusViewModel : Notify
     {
         #region Variable
-        private IncomeStatusView incomeStatusView;        // 재고관리 View
-        private IIncomeService incomeService;      // 재고관리 조회 데이터
-        private ItemDiv1Service itemDiv1Service; // 제품구분1 데이터
+        private IncomeStatusView incomeStatusView; // 입고현황 View
+        private IIncomeService incomeService;      // 입고현황 조회 데이터
+        private ItemDiv1Service itemDiv1Service;   // 제품구분1 데이터
         #endregion
 
         #region Property
         public ICommand SearchBtnOnClickEvent { private set; get; }  // 조회 버튼 이벤트
         public INavigation Navigation { private set; get;  }          // 화면 전환
         public List<KeyValuePair<string, string>> ItemDiv1List { get => itemDiv1Service.ItemDiv1List; } // 제품구분1 List
-        public List<Income> IncomeList { private set; get; } // 재고현황 List(DB)
+        public List<Income> IncomeList { private set; get; } // 입고현화 List(DB)
         #endregion 
         
         //생성자
@@ -37,7 +37,7 @@ namespace iljin_m.ViewModels
 
             SearchBtnOnClickEvent = new Command(Sch_Button_Clicked);
 
-            //전체 StockList, 최대 100건
+            //전체 IncomeList, 최대 100건
             IncomeList = incomeService.SelectDataAsync("", "", "", "", "", "", "").Result;
         }
         
