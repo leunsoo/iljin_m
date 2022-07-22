@@ -9,7 +9,7 @@ namespace iljin_m.Interfaces
 {
     public interface IIncomeService
     {
-        public Task<List<Stock>> SelectDataAsync(string itemName, string itemDivCode1, string itemDivCode2, string itemThickness,
+        public Task<List<Income>> SelectDataAsync(string itemName, string itemDivCode1, string itemDivCode2, string itemThickness,
                                                  string itemMinWidth, string itemMaxWidth, string itemMemo);
     }
 }

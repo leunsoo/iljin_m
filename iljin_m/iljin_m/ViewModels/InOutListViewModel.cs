@@ -24,7 +24,7 @@ namespace iljin_m.ViewModels
         public ICommand SearchBtnOnClickEvent { private set; get; }  // 조회 버튼 이벤트
         public INavigation Navigation { private set; get;  }          // 화면 전환
         public List<KeyValuePair<string, string>> ItemDiv1List { get => itemDiv1Service.ItemDiv1List; } // 제품구분1 List
-        public List<Stock> IncomeList { private set; get; } // 재고현황 List(DB)
+        public List<Income> IncomeList { private set; get; } // 재고현황 List(DB)
         #endregion 
         
         //생성자

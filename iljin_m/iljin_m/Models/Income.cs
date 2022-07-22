@@ -7,11 +7,11 @@ namespace iljin_m.Models
     //재고현황 
     public class Income
     {
-        public string ItemCode      { get; set; } // 제품코드W
-        public string ItemDiv       { get; set; } // 제품구분 1 + 2
-        public string ItemThickness { get; set; } // 제품두께
-        public string ItemWidth     { get; set; } // 제품폭
-        public string ItemLength    { get; set; } // 제품길이
-        public string ItemQty       { get; set; } // 현재고
+        public string ItemName      { get; set; } // 제품명
+        public string ItemQty       { get; set; } // 수량
+        public string DepartureDate { get; set; } // 출발예정일
+        public string ArrivalDate   { get; set; } // 입항일
+        public string IncomeDate    { get; set; } // 입고일
+        public string ContractNo    { get; set; } // 계약번호
     }
 }

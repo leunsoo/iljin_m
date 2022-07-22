@@ -21,10 +21,10 @@ namespace iljin_m.Services
             client = new HttpClient();
         }
 
-        public async Task<List<Stock>> SelectDataAsync(string itemName, string itemDivCode1 , string itemDivCode2, string itemThickness,
+        public async Task<List<Income>> SelectDataAsync(string itemName, string itemDivCode1 , string itemDivCode2, string itemThickness,
                                                        string itemMinWidth, string itemMaxWidth, string itemMemo )
         {
-            List<Stock> stockList = new List<Stock>();
+            List<Income> incomeList = new List<Income>();
 
             try
             {
@@ -45,7 +45,7 @@ namespace iljin_m.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    stockList = JsonConvert.DeserializeObject<List<Stock>>(content);
+                    incomeList = JsonConvert.DeserializeObject<List<Income>>(content);
                 }
             }
             catch(Exception ex)
@@ -53,7 +53,7 @@ namespace iljin_m.Services
                 Debug.WriteLine(ex.Message);
             }
 
-            return stockList;
+            return incomeList;
         }
     }
 }

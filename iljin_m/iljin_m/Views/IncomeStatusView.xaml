@@ -115,11 +115,11 @@
                     <x:Arguments></x:Arguments>
                     <dg:DataGrid.Columns>
                         <dg:DataGridColumn Title="제품명" PropertyName="ItemName" Width="0"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="수량" PropertyName="ItemCount" Width="2*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="수량" PropertyName="ItemQty" Width="2*"></dg:DataGridColumn>
                         <dg:DataGridColumn Title="출발예정" PropertyName="DepartureDate" Width="1*"></dg:DataGridColumn>
                         <dg:DataGridColumn Title="입항일" PropertyName="ArrivalDate" Width="1*"></dg:DataGridColumn>
                         <dg:DataGridColumn Title="입고일" PropertyName="DeliveryDate" Width="1*"></dg:DataGridColumn>
-                        <dg:DataGridColumn Title="계약번호" PropertyName="ContractNumber" Width="1*"></dg:DataGridColumn>
+                        <dg:DataGridColumn Title="계약번호" PropertyName="ContractNo" Width="1*"></dg:DataGridColumn>
                     </dg:DataGrid.Columns>
                     <dg:DataGrid.RowsBackgroundColorPalette>
                         <dg:PaletteCollection>
