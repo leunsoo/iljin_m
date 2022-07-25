@@ -18,6 +18,7 @@ namespace iljin_m.ViewModels
         private StockStatusView stockStatusView;        // 재고관리 View
         private IStockService stockService;      // 재고관리 조회 데이터
         private ItemDiv1Service itemDiv1Service; // 제품구분1 데이터
+        private ItemDiv2Service itemDiv2Service; // 제품구분2 데이
         #endregion
 
         #region Property
@@ -25,6 +26,7 @@ namespace iljin_m.ViewModels
         public ICommand GridBtnOnClickEvent { private set; get; }    // 입출고내역 클릭 이벤트
         public INavigation Navigation { private set; get;  }          // 화면 전환
         public List<KeyValuePair<string, string>> ItemDiv1List { get => itemDiv1Service.ItemDiv1List; } // 제품구분1 List
+        public List<KeyValuePair<string,string>> ItemDiv2List { get => itemDiv2Service.SelectDataAsync().Result; } // 제품구분2 List
         public List<Stock> StockList { private set; get; } // 재고현황 List(DB)
         #endregion 
         
@@ -59,7 +61,8 @@ namespace iljin_m.ViewModels
         //입출고내역 버튼 클릭 => 입출고내역 화면으로 전환
         private async Task InOutList_Button_Clicked()
         {
-            await Navigation.PushAsync(new InOutListView());
+            
+            await Navigation.PushAsync(new InOutListView("testBinding"));
         }
 
     }

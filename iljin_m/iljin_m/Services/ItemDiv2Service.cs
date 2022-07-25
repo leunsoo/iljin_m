@@ -28,11 +28,10 @@ namespace iljin_m.Services
             try
             {
                 string url = "http://iljin.ibuild.kr/Scripts/Mobile_Get_ItemDiv.aspx";
-                string param = "";
 
                 Uri uri = new Uri(url);
 
-                HttpResponseMessage response = await client.GetAsync(uri + param).ConfigureAwait(false);
+                HttpResponseMessage response = await client.GetAsync(uri).ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {

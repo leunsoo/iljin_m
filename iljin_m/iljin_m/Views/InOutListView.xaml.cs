@@ -17,10 +17,10 @@ namespace iljin_m.Views
     {
         public string ItemCode { private set; get; }
 
-        public InOutListView()
+        public InOutListView(string SelectedItemName)
         {
-            Txt_ItemName.Text = "TestBinding";
-            BindingContext = new InOutListViewModel(new InOut_Over_Service(), new InOut_Under_Service(), this);
+            Txt_ItemName.Text = SelectedItemName;
+            //BindingContext = new InOutListViewModel(new InOut_Over_Service(), new InOut_Under_Service(), this);
 
             InitializeComponent();
         }
